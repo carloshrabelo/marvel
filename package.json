@@ -15,12 +15,16 @@
   },
   "dependencies": {
     "next": "9.5.3",
+    "next-google-fonts": "^1.2.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "styled-components": "^5.2.0",
+    "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "babel-plugin-styled-components": "^1.11.1",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^4.3.0"
   },
