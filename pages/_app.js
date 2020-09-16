@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --color-primary: #e62429;
   }  
+
   body {
     font-family: 'Bangers', cursive;
   }

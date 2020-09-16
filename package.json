@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint:css": "stylelint './(pages|components)/**/*.js' --fix"
   },
   "husky": {
     "hooks": {
@@ -26,7 +27,10 @@
     "@commitlint/config-conventional": "^11.0.0",
     "babel-plugin-styled-components": "^1.11.1",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^4.3.0"
+    "husky": "^4.3.0",
+    "stylelint": "^13.7.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-order": "^4.1.0"
   },
   "config": {
     "commitizen": {
