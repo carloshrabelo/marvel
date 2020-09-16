@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint:css": "stylelint './(pages|components)/**/*.js' --fix"
+    "start": "next start"
   },
   "husky": {
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -30,9 +30,13 @@
     "babel-plugin-styled-components": "^1.11.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "husky": "^4.3.0",
+    "lint-staged": "^10.3.0",
+    "prettier": "^2.1.2",
     "stylelint": "^13.7.1",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-order": "^4.1.0"
