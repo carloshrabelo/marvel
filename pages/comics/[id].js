@@ -7,7 +7,7 @@ const Wrapper = styled.section`
   justify-content: center;
 `;
 
-const WriterArea = styled.section`
+const WriterArea = styled.div`
   display: flex;
   gap: var(--space);
   justify-content: space-between;
