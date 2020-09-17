@@ -13,7 +13,7 @@ const ComicList = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch("/api/list")
+    fetch("/api/comics")
       .then((results) => results.json())
       .then(setList);
   }, []);
