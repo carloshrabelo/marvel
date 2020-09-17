@@ -9,14 +9,14 @@ const Comic = ({ id, title, thumbnail, creators = [] }) => (
     <S.Thumbnail src={thumbnail} />
     <S.Title>{title}</S.Title>
     <S.Creators>{creators.join(", ")}</S.Creators>
-    <Link href={`/comic/${id}`} passhref>
+    <Link href={`/comics/${id}`} passhref>
       <S.Button as="a">Ver detalhes</S.Button>
     </Link>
   </S.Comic>
 );
 
 Comic.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   title: PropTypes.string,
   thumbnail: PropTypes.string,
   creators: PropTypes.arrayOf(PropTypes.string),
