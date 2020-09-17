@@ -23,4 +23,6 @@ export default css`
   --space-xlg: 64px;
 
   --box-shadow: 0 7px 17px -8px rgba(0, 0, 0, 0.8);
+
+  --transition: 0.3s;
 `;
