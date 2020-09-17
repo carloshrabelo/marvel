@@ -1,18 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GoogleFonts from "next-google-fonts";
-import { createGlobalStyle } from "styled-components";
 import { Normalize } from "styled-normalize";
-
-const GlobalStyle = createGlobalStyle`
-  :root {
-    --color-primary: #e62429;
-  }  
-
-  body {
-    font-family: 'Bangers', cursive;
-  }
-`;
+import GlobalStyle from "../styles/GlobalStyle";
 
 const App = ({ Component, pageProps }) => (
   <>
