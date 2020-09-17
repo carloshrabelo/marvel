@@ -1,4 +1,4 @@
-import authParams from "../../../helpers/authParams";
+import authParams from "helpers/authParams";
 
 const API = process.env.API;
 

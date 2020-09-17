@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Comic from "../components/Comic";
+import Comic from "components/Comic";
 
 const Wrapper = styled.section`
   display: grid;

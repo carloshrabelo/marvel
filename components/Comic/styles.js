@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ButtonDOM from "../Button";
+import ButtonDOM from "components/Button";
 
 export const Thumbnail = styled.img`
   box-shadow: var(--box-shadow);

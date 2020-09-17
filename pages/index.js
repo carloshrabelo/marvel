@@ -1,5 +1,5 @@
 import React from "react";
-import ComicList from "../containers/ComicList";
+import ComicList from "containers/ComicList";
 
 const Home = () => (
   <main>
