@@ -6,8 +6,7 @@ export default css`
   --primary: #e62429;
   --primary-contrast: var(--white);
 
-  --black: #151515;
-  --black: var(--white);
+  --black: #202020;
 
   --gray: #999;
 

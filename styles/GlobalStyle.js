@@ -7,9 +7,13 @@ export default createGlobalStyle`
   }  
 
   body {
-    color: var(--primary);
+    color: var(--black);
     font-family: 'Bangers', cursive;
     font-size: var(--font);
     padding: 0 var(--space-md);
+  }
+  
+  h1,h2,h3{
+    color:var(--primary)
   }
 `;
