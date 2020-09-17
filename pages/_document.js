@@ -1,7 +1,6 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import Link from "next/link";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -36,9 +35,6 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <body>
-          <header>
-            <Link href="/">Marvelous</Link>
-          </header>
           <Main />
           <NextScript />
         </body>

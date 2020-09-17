@@ -5,6 +5,7 @@ export default css`
 
   --primary: #e62429;
   --primary-contrast: var(--white);
+  --primary-darken: #ae1319;
 
   --black: #202020;
 
@@ -12,6 +13,7 @@ export default css`
 
   --font-sm: 14px;
   --font: 16px;
+  --font-md: 24px;
 
   --space-xxs: 4px;
   --space-xs: 8px;
