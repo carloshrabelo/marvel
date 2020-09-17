@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import * as S from "./styles";
 
-const ListItem = ({ id, thumbnail, name, description }) => (
-  <S.Item key={id}>
+const ListItem = ({ id, thumbnail, name, description, ...props }) => (
+  <S.Item key={id} {...props}>
     <S.Thumbnail src={thumbnail} />
     <div>
       <S.Title>{name}</S.Title>

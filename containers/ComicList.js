@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Comic from "components/Comic";
+import { find } from "reducers/comics";
+import useStore from "store/hooks/useStore";
+import useDispatch from "store/hooks/useDispatch";
 
 const Wrapper = styled.section`
   display: grid;
@@ -10,17 +13,16 @@ const Wrapper = styled.section`
 `;
 
 const ComicList = () => {
-  const [list, setList] = useState([]);
+  const comics = useStore().comics;
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("/api/comics")
-      .then((results) => results.json())
-      .then(setList);
+    if (!comics.data.length) dispatch(find());
   }, []);
 
   return (
     <Wrapper>
-      {list.map((data) => (
+      {comics.data.map((data) => (
         <Comic key={data.id} {...data} />
       ))}
     </Wrapper>

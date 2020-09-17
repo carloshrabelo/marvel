@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { find } from "reducers/comic";
+import useStore from "store/hooks/useStore";
+import useDispatch from "store/hooks/useDispatch";
 
 const Wrapper = styled.section`
   display: flex;
@@ -29,17 +32,17 @@ const Description = styled.div`
 
 const Home = () => {
   const router = useRouter();
+  const comic = useStore().comic;
+  const dispatch = useDispatch();
   const { id } = router.query;
-  const [comic, setComic] = useState([]);
 
   useEffect(() => {
-    if (id) {
-      fetch(`/api/comics/${id}`)
-        .then((results) => results.json())
-        .then(setComic);
+    if (id && comic.id !== id) {
+      dispatch(find(id));
     }
   }, [id]);
-  const { description, title, date, thumbnail, writer, penciler } = comic;
+
+  const { description, title, date, thumbnail, writer, penciler } = comic.data;
 
   return (
     <Wrapper>

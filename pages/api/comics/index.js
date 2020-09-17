@@ -16,7 +16,10 @@ const parserItem = ({
   creators: creators?.items?.map(({ name }) => name),
 });
 
-const parser = ({ data }) => data.results.map(parserItem);
+const parser = ({ data: { results, ...data } }) => ({
+  ...data,
+  data: results.map(parserItem),
+});
 
 export default (req, res) =>
   fetch(url)
