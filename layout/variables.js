@@ -3,6 +3,9 @@ import { css } from "styled-components";
 export default css`
   --white: #fff;
 
+  --bg: var(--white);
+  --bg-hover: #f5f5f5;
+
   --primary: #e62429;
   --primary-contrast: var(--white);
   --primary-darken: #ae1319;

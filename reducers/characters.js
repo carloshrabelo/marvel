@@ -1,6 +1,6 @@
 import combineReducers from "helpers/combineReducers";
 
-export const api = "/api/heroes";
+export const api = "/api/characters";
 
 export const initialState = {
   name: null,
@@ -9,10 +9,10 @@ export const initialState = {
   data: [],
 };
 
-export const SET = "SET_HEROES";
-export const REQUEST = "REQUEST_HEROES";
-export const FAILURE = "FAILURE_HEROES";
-export const SUCCESS = "SUCCESS_HEROES";
+export const SET = "SET_CHARACTERS";
+export const REQUEST = "REQUEST_CHARACTERS";
+export const FAILURE = "FAILURE_CHARACTERS";
+export const SUCCESS = "SUCCESS_CHARACTERS";
 
 const name = (state, { type, name }) => (type !== SET ? state : name);
 

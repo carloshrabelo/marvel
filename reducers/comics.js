@@ -1,7 +1,10 @@
 import combineReducers from "helpers/combineReducers";
 
-export const api = "/api/comics";
+export const apiAll = "/api/comics";
+export const apiCharacters = (id) => `/api/characters/${id}/comics`;
+
 export const initialState = {
+  id: null,
   isLoading: false,
   error: false,
   data: [],
@@ -10,9 +13,12 @@ export const initialState = {
   pages: 0,
 };
 
+export const SET = "SET_COMICS";
 export const REQUEST = "REQUEST_COMICS";
 export const FAILURE = "FAILURE_COMICS";
 export const SUCCESS = "SUCCESS_COMICS";
+
+const id = (state, { type, payload }) => (type !== SET ? state : payload?.id);
 
 const pages = (state, { type, payload }) =>
   type !== SUCCESS
@@ -60,6 +66,11 @@ const data = (state, { type, payload }) => {
   return mapping[type] || state;
 };
 
+export const set = (payload) => ({
+  type: SET,
+  payload,
+});
+
 export const request = (params) => ({
   type: REQUEST,
   params,
@@ -74,9 +85,13 @@ export const onError = () => ({
   type: FAILURE,
 });
 
-export const find = (params = {}) => (dispatch) => {
+export const find = (character, params = {}) => (dispatch) => {
+  dispatch(set(character));
   dispatch(request(params));
+
   const queryParams = new URLSearchParams(params).toString();
+  const api = character ? apiCharacters(character.id) : apiAll;
+
   return fetch(`${api}?${queryParams}`)
     .then((response) => {
       if (!response.ok) throw Error(response.statusText);
@@ -87,6 +102,7 @@ export const find = (params = {}) => (dispatch) => {
 };
 
 export default combineReducers({
+  id,
   isLoading,
   error,
   data,

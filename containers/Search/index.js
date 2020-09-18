@@ -1,29 +1,29 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import PropTypes from "prop-types";
+
 import Button from "components/Button";
-import { find } from "reducers/heroes";
+import { find } from "reducers/characters";
+import { find as findComics } from "reducers/comics";
 import useStore from "store/hooks/useStore";
 import useDispatch from "store/hooks/useDispatch";
 
 import debounce from "helpers/debounce";
+import ListItem from "components/ListItem";
 import * as S from "./styles";
-import ListItem from "./ListItem";
 
 const Search = (props) => {
-  const heroes = useStore().heroes;
+  const characters = useStore().characters;
   const dispatch = useDispatch();
 
   const [showList, setShowList] = useState(false);
 
   const search = (e) => dispatch(find(e));
+  const getComicsByCharacter = (e) => dispatch(findComics(e));
 
   const optimizedSearch = debounce(search, 500);
   const onInput = (e) => optimizedSearch(e.target.value);
   const hideList = debounce(() => setShowList(false), 200);
-
-  const getComics = (e) => {
-    console.info(e);
-  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -45,15 +45,18 @@ const Search = (props) => {
         </Button>
       </S.Form>
       {showList && (
-        <S.List>
-          {heroes.data.map((hero) => (
-            <ListItem
-              {...hero}
-              key={hero.id}
-              onClick={() => getComics(hero.id)}
-            />
-          ))}
-        </S.List>
+        <Link href="/">
+          <S.List>
+            {characters.data.map((character) => (
+              <ListItem
+                {...character}
+                key={character.id}
+                onClick={() => getComicsByCharacter(character)}
+                button
+              />
+            ))}
+          </S.List>
+        </Link>
       )}
     </S.Wrapper>
   );
