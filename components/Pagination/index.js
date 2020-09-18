@@ -13,13 +13,7 @@ const getRange = ({ currentPage, pages, middle, length }) => {
   return [currentPage - middle, currentPage + middle - 1];
 };
 
-export const Pagination = ({
-  pages,
-  page,
-  length = 5,
-  onChange = (_) => _,
-  ...props
-}) => {
+export const Pagination = ({ pages, page, length, onChange, ...props }) => {
   if (!pages) return null;
   const [currentPage, setCurrentPage] = useState(page);
 
@@ -46,10 +40,18 @@ export const Pagination = ({
 
   return (
     <S.Pagination {...props}>
-      <S.Item disabled={isFirst} onClick={() => setPage(1)}>
+      <S.Item
+        disabled={isFirst}
+        onClick={() => setPage(1)}
+        data-testid="item-first"
+      >
         &lt;&lt;
       </S.Item>
-      <S.Item disabled={isFirst} onClick={() => setPage(currentPage - 1)}>
+      <S.Item
+        disabled={isFirst}
+        onClick={() => setPage(currentPage - 1)}
+        data-testid="item-prev"
+      >
         &lt;
       </S.Item>
       {list.map((page) => (
@@ -61,20 +63,30 @@ export const Pagination = ({
           {page}
         </S.Item>
       ))}
-      <S.Item onClick={() => setPage(currentPage + 1)} disabled={isLast}>
+      <S.Item
+        onClick={() => setPage(currentPage + 1)}
+        disabled={isLast}
+        data-testid="item-next"
+      >
         &gt;
       </S.Item>
-      <S.Item onClick={() => setPage(pages)} disabled={isLast}>
+      <S.Item
+        onClick={() => setPage(pages)}
+        disabled={isLast}
+        data-testid="item-last"
+      >
         &gt;&gt;
       </S.Item>
     </S.Pagination>
   );
 };
 
-Pagination.propTypes = {
-  className: PropTypes.string,
-  color: PropTypes.string,
+Pagination.defaultProps = {
+  length: 5,
+  onChange: (_) => _,
+};
 
+Pagination.propTypes = {
   onChange: PropTypes.func,
   page: PropTypes.number,
   length: PropTypes.number,
