@@ -4,25 +4,30 @@ const API = process.env.API;
 
 const url = `${API}comics?${authParams}`;
 
-const parserItem = ({
-  id,
-  title,
-  creators,
-  thumbnail: { path, extension },
-}) => ({
+const parser = ({ id, title, creators, thumbnail: { path, extension } }) => ({
   id,
   title,
   thumbnail: `${path}/portrait_fantastic.${extension}`,
   creators: creators?.items?.map(({ name }) => name),
 });
 
-const parser = ({ data: { results, ...data } }) => ({
-  ...data,
-  data: results.map(parserItem),
-});
+export default ({ query }, res) => {
+  const { page = 1, pageSize = 100 } = query;
 
-export default (req, res) =>
-  fetch(url)
+  const params = {
+    offset: (page - 1) * pageSize,
+    limit: pageSize,
+  };
+
+  const _params = new URLSearchParams(params).toString();
+
+  return fetch(`${url}&${_params}`)
     .then((response) => response.json())
-    .then(parser)
+    .then(({ data: { total, results } }) => ({
+      page,
+      pageSize,
+      pages: Math.ceil(total / pageSize),
+      data: results.map(parser),
+    }))
     .then(res.json);
+};

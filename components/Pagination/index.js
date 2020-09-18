@@ -37,7 +37,7 @@ export const Pagination = ({
   }, [page]);
 
   const setPage = (newPage) => {
-    if (newPage === currentPage) {
+    if (newPage === currentPage || newPage < 1 || newPage > pages) {
       return;
     }
     setCurrentPage(newPage);

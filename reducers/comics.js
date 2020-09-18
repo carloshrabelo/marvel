@@ -9,7 +9,7 @@ export const initialState = {
   error: false,
   data: [],
   page: 1,
-  pageSize: 6,
+  pageSize: 100,
   pages: 0,
 };
 
@@ -20,17 +20,31 @@ export const SUCCESS = "SUCCESS_COMICS";
 
 const id = (state, { type, payload }) => (type !== SET ? state : payload?.id);
 
-const pages = (state, { type, payload }) =>
-  type !== SUCCESS
-    ? state
-    : (payload && payload.total_pages) || initialState.total;
+const pages = (state, { type, payload, params }) => {
+  const mapping = {
+    [SUCCESS]: payload?.pages,
+    [REQUEST]: params?.pages || initialState.pages,
+  };
 
-const page = (state, { type, params }) =>
-  type !== REQUEST ? state : (params && params.page) || initialState.page;
-const pageSize = (state, { type, params }) =>
-  type !== REQUEST
-    ? state
-    : (params && params.pageSize) || initialState.pageSize;
+  return mapping[type] || state;
+};
+const page = (state, { type, payload, params }) => {
+  const mapping = {
+    [SUCCESS]: payload?.page,
+    [REQUEST]: params?.page || initialState.page,
+  };
+
+  return mapping[type] || state;
+};
+
+const pageSize = (state, { type, payload, params }) => {
+  const mapping = {
+    [SUCCESS]: payload?.pageSize,
+    [REQUEST]: params?.pageSize || initialState.pageSize,
+  };
+
+  return mapping[type] || state;
+};
 
 const isLoading = (state, { type }) => {
   const mapping = {
@@ -58,7 +72,7 @@ const error = (state, { type, message }) => {
 
 const data = (state, { type, payload }) => {
   const mapping = {
-    [SUCCESS]: payload && payload.data,
+    [SUCCESS]: payload?.data,
     [REQUEST]: state,
     [FAILURE]: state,
   };
@@ -86,10 +100,13 @@ export const onError = () => ({
 });
 
 export const find = (character, params = {}) => (dispatch) => {
+  const { page, pageSize } = initialState;
+  const _params = { page, pageSize, ...params };
+
   dispatch(set(character));
   dispatch(request(params));
 
-  const queryParams = new URLSearchParams(params).toString();
+  const queryParams = new URLSearchParams(_params).toString();
   const api = character ? apiCharacters(character.id) : apiAll;
 
   return fetch(`${api}?${queryParams}`)
