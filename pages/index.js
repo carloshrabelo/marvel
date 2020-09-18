@@ -1,29 +1,14 @@
 import React from "react";
 import ComicList from "containers/ComicList";
 import CharacterSelected from "containers/CharacterSelected";
-import styled from "styled-components";
-
-const Pagination = styled.ul`
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  list-style: none;
-`;
+import Pagination from "components/Pagination";
 
 const Home = () => {
   return (
     <>
+      <Pagination page={3} pageSize={5} pages={5} />
       <ComicList />
       <CharacterSelected />
-      <Pagination>
-        {Array(5)
-          .fill("")
-          .map((a, i) => (
-            <li key={i}>
-              <a href="#">{i + 1}</a>
-            </li>
-          ))}
-      </Pagination>
     </>
   );
 };
