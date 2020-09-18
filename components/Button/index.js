@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const colors = {
+export const colors = {
   primary: css`
     background: var(--primary);
     border-color: var(--primary);
