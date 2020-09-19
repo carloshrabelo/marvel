@@ -5,13 +5,10 @@ const API = process.env.API;
 const url = (comicId) => `${API}comics/${comicId}?${authParams}`;
 
 const getCreators = (regex) => ({ items }) =>
-  items
-    .filter(({ role }) => regex.test(role))
-    .map(({ name }) => name)
-    .join(", ");
+  items.filter(({ role }) => regex.test(role)).map(({ name }) => name);
 
-const getWriter = getCreators(/(?:writer)/i);
-const getPenciler = getCreators(/(?:penciler|penciller|inker)/i);
+const getWriters = getCreators(/(?:writer)/i);
+const getPencilers = getCreators(/(?:penciler|penciller|inker)/i);
 
 const parserItem = ({
   description,
@@ -27,8 +24,8 @@ const parserItem = ({
     title,
     date: date && new Intl.DateTimeFormat("pt-BR").format(new Date(date)),
     thumbnail: `${path}.${extension}`,
-    writer: getWriter(creators),
-    penciler: getPenciler(creators),
+    writers: getWriters(creators),
+    pencilers: getPencilers(creators),
   };
 };
 
