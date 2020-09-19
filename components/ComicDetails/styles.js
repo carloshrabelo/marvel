@@ -30,6 +30,7 @@ export const Content = styled.div`
 
   @media (max-width: 768px) {
     background: rgba(0, 0, 0, 0.5);
+    border-top: 3px inset rgb(255, 255, 255, 0.5);
     bottom: 0;
     color: var(--white);
     left: 0;
@@ -38,6 +39,10 @@ export const Content = styled.div`
     position: sticky;
     right: 0;
     text-shadow: 1px 1px var(--primary);
+
+    h1 {
+      text-align: center;
+    }
 
     h1,
     h2,
