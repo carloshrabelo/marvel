@@ -4,6 +4,7 @@ import { find } from "reducers/comic";
 import useStore from "store/hooks/useStore";
 import useDispatch from "store/hooks/useDispatch";
 import ComicDetails from "components/ComicDetails";
+import Placeholder from "components/ComicDetails/Placeholder";
 
 const Home = () => {
   const router = useRouter();
@@ -17,6 +18,10 @@ const Home = () => {
     }
   }, [id]);
 
-  return <ComicDetails {...comic.data} />;
+  return comic.isLoading ? (
+    <Placeholder {...comic.data} />
+  ) : (
+    <ComicDetails {...comic.data} />
+  );
 };
 export default Home;
