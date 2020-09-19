@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     position: relative;
   }
 `;
