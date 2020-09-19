@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Comic from "components/Comic";
+import Placeholder from "components/Comic/Placeholder";
 import { find } from "reducers/comics";
 import useStore from "store/hooks/useStore";
 import useDispatch from "store/hooks/useDispatch";
@@ -22,9 +23,11 @@ const ComicList = () => {
 
   return (
     <Wrapper>
-      {comics.data.map((data) => (
-        <Comic key={data.id} {...data} />
-      ))}
+      {comics.isLoading
+        ? Array.from(Array(7).keys()).map((index) => (
+            <Placeholder key={index} />
+          ))
+        : comics.data.map((data) => <Comic key={data.id} {...data} />)}
     </Wrapper>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
+import Button from "components/Button";
 
 import * as S from "./styles";
 
@@ -10,7 +11,7 @@ const Comic = ({ id, title, thumbnail, creators = [] }) => (
     <S.Title>{title}</S.Title>
     <S.Creators>{creators.join(", ")}</S.Creators>
     <Link href={`/comics/${id}`} passhref>
-      <S.Button as="a">Ver detalhes</S.Button>
+      <Button as="a">Ver detalhes</Button>
     </Link>
   </S.Comic>
 );

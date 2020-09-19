@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ButtonDOM from "components/Button";
 
 export const Thumbnail = styled.img`
   box-shadow: var(--box-shadow);
@@ -11,6 +10,7 @@ export const Creators = styled.div`
   color: var(--gray);
   font-size: var(--font-sm);
   height: 1em;
+  margin-bottom: var(--space-xs);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -40,10 +40,6 @@ export const Comic = styled.div`
 
 export const Title = styled.div`
   padding: var(--space-xs) 0;
-`;
-
-export const Button = styled(ButtonDOM)`
-  margin-top: var(--space-xs);
 `;
 
 export default Comic;
