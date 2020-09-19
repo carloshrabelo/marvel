@@ -23,10 +23,12 @@ const id = (state, { type, payload }) => (type !== SET ? state : payload?.id);
 const pages = (state, { type, payload, params }) => {
   const mapping = {
     [SUCCESS]: payload?.pages,
-    [REQUEST]: params?.pages || initialState.pages,
+    [REQUEST]: !params?.page ? initialState.pages : state,
   };
 
-  return mapping[type] || state;
+  return Object.prototype.hasOwnProperty.call(mapping, type)
+    ? mapping[type]
+    : state;
 };
 const page = (state, { type, payload, params }) => {
   const mapping = {
