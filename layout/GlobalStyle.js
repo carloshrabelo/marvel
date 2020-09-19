@@ -19,8 +19,9 @@ export default createGlobalStyle`
     width: 100%;
   }
 
-  h1,h2,h3{
-    color:var(--primary)
+  h1, h2, h3 {
+    color:var(--primary);
+    text-shadow: 1px 1px var(--white), 2px 2px var(--gray);
   }
 
   #__next{

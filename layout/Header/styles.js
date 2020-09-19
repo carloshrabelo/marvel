@@ -13,10 +13,12 @@ export const Link = styled.a`
 
 export const Title = styled.h1`
   margin: 0;
+  text-shadow: 1px 1px var(--white), 2px 2px var(--primary);
   transition: color var(--transition) ease-in-out;
 
   &:hover {
     color: var(--primary-darken);
+    text-shadow: 1px 1px var(--white), 2px 2px var(--primary-darken);
   }
 `;
 

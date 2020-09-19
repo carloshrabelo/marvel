@@ -38,7 +38,7 @@ export const Content = styled.div`
     padding: 0 var(--space) var(--space);
     position: sticky;
     right: 0;
-    text-shadow: 1px 1px var(--primary);
+    text-shadow: 1px 1px var(--black), 2px 2px var(--primary);
 
     h1 {
       text-align: center;
@@ -47,7 +47,7 @@ export const Content = styled.div`
     h1,
     h2,
     h3 {
-      text-shadow: 1px 1px var(--white);
+      text-shadow: 1px 1px var(--white), 2px 2px var(--primary);
     }
   }
 `;
