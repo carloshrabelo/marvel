@@ -8,6 +8,7 @@ export const Wrapper = styled.article`
     background: black;
     flex: 1;
     flex-direction: column;
+    margin: 0 calc(var(--space-md) * -1);
   }
 `;
 
