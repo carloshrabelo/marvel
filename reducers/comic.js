@@ -4,7 +4,7 @@ export const api = "/api/comics";
 
 export const initialState = {
   id: null,
-  isLoading: false,
+  isLoading: true,
   error: false,
   data: {},
 };

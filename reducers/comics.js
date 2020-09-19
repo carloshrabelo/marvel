@@ -5,7 +5,7 @@ export const apiCharacters = (id) => `/api/characters/${id}/comics`;
 
 export const initialState = {
   id: null,
-  isLoading: false,
+  isLoading: true,
   error: false,
   data: [],
   page: 1,

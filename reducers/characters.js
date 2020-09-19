@@ -4,7 +4,7 @@ export const api = "/api/characters";
 
 export const initialState = {
   name: null,
-  isLoading: false,
+  isLoading: true,
   error: false,
   data: [],
 };

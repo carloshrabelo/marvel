@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const Thumbnail = styled.img`
   box-shadow: var(--box-shadow);
+  min-height: 200px;
   transition: transform 0.17s ease-in-out;
+  width: 100%;
   will-change: transform;
 `;
 

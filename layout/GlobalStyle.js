@@ -8,12 +8,26 @@ export default createGlobalStyle`
 
   body {
     color: var(--black);
+    display: grid;
     font-family: 'Bangers', cursive;
     font-size: var(--font);
-    padding: 0 var(--space-md);
+    width: 100%;
   }
   
   h1,h2,h3{
     color:var(--primary)
+  }
+
+  #__next{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0 var(--space-md);
+  }
+
+  main{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
   }
 `;

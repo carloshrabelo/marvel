@@ -12,13 +12,13 @@ const Home = () => {
   const dispatch = useDispatch();
   return (
     <>
+      <ComicList />
+      <CharacterSelected />
       <Pagination
         page={comics.page}
         pages={comics.pages}
         onChange={(page) => dispatch(find(character, { page }))}
       />
-      <ComicList />
-      <CharacterSelected />
     </>
   );
 };
