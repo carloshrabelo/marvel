@@ -1,4 +1,5 @@
 import { useContext } from "react";
 import StoreContext from "../StoreContext";
 
-export default () => useContext(StoreContext).dispatch;
+const useDispatch = () => useContext(StoreContext).dispatch;
+export default useDispatch;

@@ -21,11 +21,13 @@ export default ({ query }, res) => {
 
   const _params = new URLSearchParams(params).toString();
 
+  console.info(`${url}&${_params}`);
+
   return fetch(`${url}&${_params}`)
     .then((response) => response.json())
     .then(({ data: { total, results } }) => ({
-      page,
-      pageSize,
+      page: page * 1,
+      pageSize: pageSize * 1,
       pages: Math.ceil(total / pageSize),
       data: results.map(parser),
     }))
