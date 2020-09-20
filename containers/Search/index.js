@@ -12,6 +12,9 @@ import debounce from "helpers/debounce";
 import ListItem from "components/ListItem";
 import * as S from "./styles";
 
+export const TIME_HIDDEN = 200;
+export const TIME_SEARCH = 500;
+
 const Search = (props) => {
   const characters = useStore().characters;
   const dispatch = useDispatch();
@@ -21,9 +24,9 @@ const Search = (props) => {
   const search = (e) => dispatch(find(e));
   const getComicsByCharacter = (e) => dispatch(findComics(e));
 
-  const optimizedSearch = debounce(search, 500);
+  const optimizedSearch = debounce(search, TIME_SEARCH);
   const onInput = (e) => optimizedSearch(e.target.value);
-  const hideList = debounce(() => setShowList(false), 200);
+  const hideList = debounce(() => setShowList(false), TIME_HIDDEN);
 
   const onSubmit = (e) => {
     e.preventDefault();

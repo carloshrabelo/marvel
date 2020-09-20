@@ -20,22 +20,18 @@ const SListItem = styled(ListItem)`
   flex: 1;
 `;
 
-const Home = (props) => {
+const CharacterSelected = (props) => {
   const character = useStore().character;
   const dispatch = useDispatch();
+  const resetFilter = () => dispatch(find());
 
   return !character ? null : (
     <Wrapper {...props}>
       <SListItem {...character} />
-      <Button
-        color="primary"
-        onClick={() => {
-          dispatch(find());
-        }}
-      >
+      <Button color="primary" onClick={resetFilter}>
         Remover
       </Button>
     </Wrapper>
   );
 };
-export default Home;
+export default CharacterSelected;
