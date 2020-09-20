@@ -14,7 +14,7 @@ export const REQUEST = "REQUEST_CHARACTERS";
 export const FAILURE = "FAILURE_CHARACTERS";
 export const SUCCESS = "SUCCESS_CHARACTERS";
 
-const name = (state, { type, name }) => (type !== SET ? state : name);
+const name = (state, { type, payload }) => (type !== SET ? state : payload);
 
 const isLoading = (state, { type }) => {
   const mapping = {
@@ -50,9 +50,9 @@ const data = (state, { type, payload }) => {
   return mapping[type] || state;
 };
 
-export const set = (name) => ({
+export const set = (payload) => ({
   type: SET,
-  name,
+  payload,
 });
 
 export const request = (params) => ({
