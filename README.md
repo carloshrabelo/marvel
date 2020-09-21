@@ -1,4 +1,8 @@
 <h1 align="center">Marvel Magazines</h1>
+<div align="center">
+
+[![Demo Website](https://img.shields.io/static/v1?label=vercel&message=Demo&color=000000&style=for-the-badge&logo=vercel)](https://chr-marvel.vercel.app/)
+</div>
 
 ![Next.js](https://img.shields.io/static/v1?label=Next.js&message=framework&color=000000&style=for-the-badge&logo=Next.js)
 ![React Framework](https://img.shields.io/static/v1?label=react&message=framework&color=61DAFB&style=for-the-badge&logo=REACT)
@@ -33,6 +37,20 @@ npm build
 npm start
 ```
 
+## Folder structure
+```
+|__components - UI components
+|__containers - UI components that have business rules
+|__docs - Documentation and documentation assets
+|__helpers - Functions helpers
+|__layout - UI components that are displayed on all pages of the site
+|__mock - Files used in testing
+|__pages - Pages that reflect the browser address
+|__pages/api - Apis for translation/connection with other endpoints
+|__public - Static file serving
+|__reducers - Reducer/Actions 
+|__store - Store manager
+```
 ## Licença
 
 The [MIT License]() (MIT)
