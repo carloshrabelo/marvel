@@ -24,14 +24,17 @@ The application displays the marvel comics, being paginated every 100. It is to 
 
 You need the [node](https://nodejs.org/en/download/) to run this project, this example was created for the version `v12.18.3`.
 
-### Run as dev
+### Run application
+To run this application you need to put keys into `.env` file, this project have a `.env.example` with the variables, but you need get the keys into [marvel site](https://developer.marvel.com/account)
+
+### Dev
 
 ```bash
 npm install
 npm dev
 ```
 
-### Run as prod
+#### Prod
 
 ```bash
 npm install
