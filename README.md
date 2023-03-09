@@ -45,17 +45,17 @@ npm start
 ## Folder structure
 
 ```
-|___components - UI components
-|___containers - UI components that have business rules
-|___docs - Documentation and documentation assets
-|___helpers - Functions helpers
-|___layout - UI components that are displayed on all pages of the site
-|___mock - Files used in testing
-|___pages - Pages that reflect the browser address
-    |___api - Apis for translation/connection with other endpoints
-|___public - Static file serving
-|___reducers - Reducer/Actions
-|___store - Store manager
+┏━╾📂 components - UI components
+┣━╾📂 containers - UI components that have business rules
+┣━╾📂 docs - Documentation and documentation assets
+┣━╾📂 helpers - Functions helpers
+┣━╾📂 layout - UI components that are displayed on all pages of the site
+┣━╾📂 mock - Files used in testing
+┣━╾📂 pages - Pages that reflect the browser address
+┃  ┗━╾📂 api - Apis for translation/connection with other endpoints
+┣━╾📂 public - Static file serving
+┣━╾📂 reducers - Reducer/Actions
+┗━╾📂 store - Store manager
 ```
 
 ## Licença
